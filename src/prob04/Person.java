@@ -10,7 +10,6 @@ public class Person {
 		this.name = "";
 	}
 	
-	
 	public Person( String name ){
 		this.name = name;
 		this.age = 12;
