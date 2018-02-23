@@ -13,7 +13,7 @@ public class Gugudan {
 		resultNumber = l * r;
 
 		int[] answerNumbers = randomizeAnswers();
-		int loc = randomize( 0, 8 );
+		int loc = randomize( 0, 8 ); //배열 위치 랜덤
 		answerNumbers[ loc ] = resultNumber;
 		
 		System.out.println( l + " x " + r + " = ?" );
@@ -33,13 +33,19 @@ public class Gugudan {
 		System.out.print( "answer:" );
 
 		Scanner s = new Scanner( System.in );
-		//
-		//  이 부분에 적당한 코드를 작성합니다.  
-		//
+		
+		int answer = s.nextInt();
+		
+		if(answer == resultNumber) {
+			System.out.println("정답");
+		} else {
+			System.out.println("오답");
+		}
+		 
 	}
 
 	private static int randomize( int lNum, int rNum ) {
-        int random = (int) ( Math.random() * rNum ) + lNum;
+        int random = (int) ( Math.random() * rNum ) + lNum; //1 ~ 9
         return random;
 	}
 	
@@ -53,11 +59,11 @@ public class Gugudan {
 		
 		while( occupied < COUNT_ANSWER_NUMBER ) {
 			
-	        int random = ( int )( Math.random() * MAX_ANSWER_NUMBER ) + 1;
-	        
+	        int random = ( int )( Math.random() * MAX_ANSWER_NUMBER ) + 1; //1 ~ 81
 	        boolean evaluted = false;
 	        for( int i = 0; i < occupied; i++ ) {
-	        	if( /* 이 부분에 적당 조건의 코드를 입력 합니다. */ ) {
+	        	
+	        	if( random == resultNumber ) {
 	        		evaluted = true;
 	        		break;
 	        	}
@@ -67,6 +73,7 @@ public class Gugudan {
 	        	boardNumbers[ occupied++ ] = random;
 	        }
 		}
+		
 		
         return boardNumbers;
 	}	
